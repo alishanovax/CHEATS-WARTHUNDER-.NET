@@ -4,27 +4,27 @@ export interface ProductPlan {
   id: ProductPlanId;
   label: string;
   duration: string;
-  priceUsd: number;
+  priceUsd: number | null;
   priceNote: string;
   popular?: boolean;
 }
 
-/** Matches Zadeyo Apex Legends offers (Monthly $35 / 31 days, Lifetime $150). */
+/** Pricing varies by Zadeyo offer — UI uses neutral copy; checkout shows live price. */
 const standardPlans: ProductPlan[] = [
   {
     id: 'monthly',
     label: 'Monthly',
-    duration: '31 days of access',
-    priceUsd: 35,
-    priceNote: '31 days',
+    duration: 'Time-limited access',
+    priceUsd: null,
+    priceNote: 'See Zadeyo checkout',
     popular: true,
   },
   {
     id: 'lifetime',
-    label: 'Lifetime',
-    duration: 'Unlimited access',
-    priceUsd: 150,
-    priceNote: 'Lifetime',
+    label: 'Extended',
+    duration: 'Long-term access',
+    priceUsd: null,
+    priceNote: 'See Zadeyo checkout',
   },
 ];
 
@@ -37,7 +37,8 @@ export function getDefaultPlan(productSlug?: string): ProductPlan {
   return plans.find((plan) => plan.popular) ?? plans[0]!;
 }
 
-export function formatPlanPrice(usd: number): string {
+export function formatPlanPrice(usd: number | null): string {
+  if (usd === null) return 'See checkout';
   return Number.isInteger(usd) ? `$${usd}` : `$${usd.toFixed(2)}`;
 }
 

@@ -13,6 +13,7 @@ function blockPlainText(block: BlogBlock): string {
     case 'h3':
       return block.text;
     case 'ul':
+    case 'ol':
       return block.items.join(' ');
     case 'table':
       return [...block.headers, ...block.rows.flat()].join(' ');

@@ -1,18 +1,18 @@
 /** Primary Zadeyo affiliate checkout (go link + product path). */
-export const APEX_CHECKOUT_URL =
-  'https://zadeyo.com/go/ALISHA?to=%2Fproducts%2Fapex-legends';
+export const WAR_THUNDER_CHECKOUT_URL =
+  'https://zadeyo.com/go/ALISHA?to=%2Fproducts%2Fwar-thunder';
 
 export const CHECKOUT_URLS = {
-  apex: APEX_CHECKOUT_URL,
-  skinChanger: APEX_CHECKOUT_URL,
-  hwidSpoofer: APEX_CHECKOUT_URL,
-  ugc: APEX_CHECKOUT_URL,
+  warThunder: WAR_THUNDER_CHECKOUT_URL,
+  skinChanger: WAR_THUNDER_CHECKOUT_URL,
+  hwidSpoofer: WAR_THUNDER_CHECKOUT_URL,
+  ugc: WAR_THUNDER_CHECKOUT_URL,
 };
 
 /** Checkout paths → external product URLs (used by Node serve + Astro middleware). */
 export const CHECKOUT_PATH_REDIRECTS = new Map([
-  ['/go/apex', CHECKOUT_URLS.apex],
-  ['/go/apex/', CHECKOUT_URLS.apex],
+  ['/go/war-thunder', CHECKOUT_URLS.warThunder],
+  ['/go/war-thunder/', CHECKOUT_URLS.warThunder],
   ['/go/skin-changer', CHECKOUT_URLS.skinChanger],
   ['/go/skin-changer/', CHECKOUT_URLS.skinChanger],
   ['/go/hwid-spoofer', CHECKOUT_URLS.hwidSpoofer],

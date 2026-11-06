@@ -59,50 +59,26 @@ export interface ProductPage {
 
 /** Guides paired with each product detail page */
 export const productRelatedBlogSlugs: Record<string, string[]> = {
-  lite: ['apex-esp-setup', 'apex-lite-vs-pro', 'apex-radar', 'eac-patch-day'],
-  pro: [
-    'apex-aimbot-ranked',
-    'apex-aimbot-combat',
-    'apex-lite-vs-pro',
-    'apex-stream-proof',
-  ],
-  elite: [
-    'apex-elite-tier',
-    'apex-cheat-features',
-    'apex-esp-setup',
-    'eac-patch-day',
-    'buy-apex-legends-cheats',
-  ],
-  'hwid-spoofer': [
-    'apex-hwid-ban',
-    'eac-troubleshooting',
-    'eac-patch-day',
-    'apex-external-loader',
-  ],
-  ugc: [
-    'eac-troubleshooting',
-    'apex-hwid-ban',
-    'buy-apex-legends-cheats',
-  ],
-  'unlock-all': [
-    'apex-loadouts',
-    'apex-cheat-features',
-    'apex-stream-proof',
-  ],
+  lite: ['wt-esp-setup', 'wt-lite-vs-pro', 'wt-radar', 'wt-patch-day'],
+  pro: ['wt-aimbot-ranked', 'wt-aimbot-combat', 'wt-lite-vs-pro', 'wt-stream-proof'],
+  elite: ['wt-elite-tier', 'wt-cheat-features', 'wt-esp-setup', 'wt-patch-day', 'buy-war-thunder-cheats'],
+  'hwid-spoofer': ['wt-hwid-ban', 'wt-launcher-troubleshooting', 'wt-patch-day', 'wt-external-loader'],
+  ugc: ['wt-launcher-troubleshooting', 'wt-hwid-ban', 'buy-war-thunder-cheats'],
+  'unlock-all': ['wt-loadouts', 'wt-cheat-features', 'wt-stream-proof'],
 };
 
-const productBase = '/products/apex/';
+const productBase = '/products/war-thunder/';
 
 const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '01',
     title: 'Review current status',
-    desc: 'Check the live banner on apexlegendcheats.net and Discord #status before purchase—especially after a Apex Legends or Easy Anti-Cheat update.',
+    desc: 'Check the live banner on cheatswarthunder.net and Discord #status before purchase—especially after a War Thunder client or security update.',
   },
   {
     num: '02',
     title: 'Choose your access tier',
-    desc: 'Select Elite Apex Legends cheats or the utility that matches your goal. Review the feature list before checkout via our secure checkout.',
+    desc: 'Select the War Thunder cheat tier or utility that matches your goal. Review the feature list on Zadeyo and this catalog before checkout.',
   },
   {
     num: '03',
@@ -112,7 +88,7 @@ const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '04',
     title: 'Follow guided setup',
-    desc: 'Use only the customer portal, patch loader, and setup guide. Test in a lobby, load presets, then queue ranked or Ranked.',
+    desc: 'Use only the customer portal, current loader, and setup guide. Test in Test Drive or a low-stakes mode, load presets, then use online playlists when stable.',
   },
 ];
 
@@ -124,17 +100,17 @@ function acquisitionFor(productName: string): ProductAcquisition {
 }
 
 const sharedGoodToKnow =
-  'Apex Legends and Easy Anti-Cheat receive frequent updates. Confirm module availability on the live status panel at apexlegendcheats.net before you purchase or launch. Overlay behavior may differ in lobbies, replays and spectator mode after patches.';
+  'War Thunder receives frequent updates. Confirm module availability on the live status panel at cheatswarthunder.net before you purchase or launch. Overlay behavior may differ in replays and spectator views after patches.';
 
 const sharedLimitations =
-  'Third-party software in Apex Legends can violate the game terms of service and lead to anti-cheat action. You use this software at your own risk. Compatibility and availability can change after game, anti-cheat, or Windows updates without notice.';
+  'Third-party software in War Thunder can violate the game terms of service and lead to enforcement action. You use this software at your own risk. Compatibility and availability can change after game, anti-cheat, or Windows updates without notice.';
 
-const apexSystemRequirements: SystemRequirement[] = [
-  { icon: 'reqWindows', text: 'Windows 10 or Windows 11 (64-bit) with HVCI, Core Isolation, TPM and Secure Boot enabled.' },
-  { icon: 'reqEpic', text: 'Current PC build of Apex Legends with the latest patches applied.' },
-  { icon: 'reqSettings', text: 'Cloud DMA access for full functionality on supported builds.' },
+const wtSystemRequirements: SystemRequirement[] = [
+  { icon: 'reqWindows', text: 'Windows 10 or Windows 11 (64-bit). Confirm any extra requirements on the Zadeyo product page before purchase.' },
+  { icon: 'reqEpic', text: 'Current PC client of War Thunder with patches applied.' },
+  { icon: 'reqSettings', text: 'Administrator access for loader setup when required by the portal guide.' },
   { icon: 'reqWifi', text: 'Stable internet connection for portal access and loader updates.' },
-  { icon: 'reqCpu', text: 'Intel or AMD system that meets Apex Legends hardware requirements.' },
+  { icon: 'reqCpu', text: 'Hardware that meets War Thunder system requirements for your graphics settings.' },
 ];
 
 type GalleryKey = keyof typeof galleryRaw;
@@ -143,32 +119,32 @@ const galleryRaw = {
   gpAimbotEsp: {
     src: SITE_CHEAT_IMAGES[0].src,
     alt: SITE_CHEAT_IMAGES[0].alt,
-    caption: 'Soft aim & ESP',
-    captionDesc: 'Apex Legends trainer overlays tuned for PC gunfights.',
+    caption: 'Overlays & ESP',
+    captionDesc: 'War Thunder PC overlays tuned for Air and Ground battles.',
   },
   gpEspWallhack: {
     src: SITE_CHEAT_IMAGES[1].src,
     alt: SITE_CHEAT_IMAGES[1].alt,
-    caption: 'Enemy ESP',
-    captionDesc: 'Player ESP with health, health and distance in Apex Legends multiplayer.',
+    caption: 'Vehicle ESP',
+    captionDesc: 'Vehicle and threat information aligned with the live module list.',
   },
   gpGameplay: {
     src: SITE_CHEAT_IMAGES[2].src,
     alt: SITE_CHEAT_IMAGES[2].alt,
-    caption: 'Apex Legends co-op',
-    captionDesc: 'Tactical shooter action on PC with trainer-friendly overlays.',
+    caption: 'Battlefield view',
+    captionDesc: 'PC match context with trainer-friendly overlays.',
   },
   gpEspIndoor: {
     src: SITE_CHEAT_IMAGES[3].src,
     alt: SITE_CHEAT_IMAGES[3].alt,
-    caption: 'Apex combat',
-    captionDesc: 'Cel-shaded Apex Legends combat in a twilight outpost.',
+    caption: 'Combat HUD',
+    captionDesc: 'In-match War Thunder HUD reference from approved media.',
   },
   gpCourtyard: {
-    src: SITE_CHEAT_IMAGES[4]!.src,
-    alt: SITE_CHEAT_IMAGES[4]!.alt,
-    caption: 'Apex firefight',
-    captionDesc: 'Sci-fi courtyard firefight with Legend action.',
+    src: SITE_CHEAT_IMAGES[0]!.src,
+    alt: SITE_CHEAT_IMAGES[0]!.alt,
+    caption: 'Air & ground',
+    captionDesc: 'Mixed RB/AB reference — confirm mode support on the product page.',
   },
 };
 
@@ -185,9 +161,9 @@ function slide(...keys: GalleryKey[]): ProductSlide[] {
 }
 
 const productDetailGalleryCaptions = [
-  { caption: 'Updates & anti-cheat', captionDesc: 'Stay aligned with Apex Legends patch and security news.' },
-  { caption: 'Multiplayer gameplay', captionDesc: 'In-match view on a compact map with full HUD.' },
-  { caption: 'Quick Match perspective', captionDesc: 'First-person combat with kill feed and minimap.' },
+  { caption: 'Updates & status', captionDesc: 'Stay aligned with War Thunder patch and product status news.' },
+  { caption: 'Multiplayer gameplay', captionDesc: 'In-match view on PC with full HUD context.' },
+  { caption: 'Ground or air perspective', captionDesc: 'First- or third-person combat with minimap and feed.' },
 ] as const;
 
 function productDetailGallery(): ProductSlide[] {
@@ -204,41 +180,41 @@ function productDetailGallery(): ProductSlide[] {
 
 function slugFromHref(href: string): string {
   const segment = href.replace(productBase, '').replace(/^\//, '').replace(/\/$/, '');
-  return segment || 'apex';
+  return segment || 'war-thunder';
 }
 
 const tierAbout: Record<string, ProductPage['about']> = {
   lite: [
     {
       type: 'p',
-      text: 'Apex Lite is built for players who want map awareness first. In ranked, knowing enemy positions, chest locations and loot timings wins more fights than raw mechanics—Lite gives you that edge without aimbot automation.',
+      text: 'War Thunder Lite is built for situational awareness first. Strong map reads win more engagements than raw aim—Lite focuses on ESP, radar-style tools, and vehicle information without aim automation.',
     },
-    { type: 'h2', text: 'Ranked-safe by design' },
+    { type: 'h2', text: 'Awareness-first defaults' },
     {
       type: 'p',
-      text: 'Lite skips Aimbot and bot modules entirely. Your gameplay looks natural while ESP, radar cheat and loot timers keep you informed. Stream-proof mode hides overlays from OBS capture for content creators.',
+      text: 'Lite skips aim automation modules. Tune overlay range and colors in the portal; use stream-proof options if you record gameplay. Exact modules match the Zadeyo listing at purchase time.',
     },
   ],
   pro: [
     {
       type: 'p',
-      text: 'Apex Pro is the sweet spot for ranked grinders. Aimbot, Smooth Aim and Sticky Aim help you win squad fights without obvious bot patterns—when you tune Smoothness sliders using our portal presets.',
+      text: 'War Thunder Pro adds configurable aim assistance on top of Lite. Use smoothness and lead settings that stay readable in replays—start from portal presets, not max values.',
     },
-    { type: 'h2', text: 'Aimbot + awareness combined' },
+    { type: 'h2', text: 'Aim assistance + awareness' },
     {
       type: 'p',
-      text: 'Pro inherits every Lite module and adds Aimbot, Bone Priority, Hotkey macros and FOV and smoothness drawing. You see the fight before it starts and win it with aimbot that stay human at default settings.',
+      text: 'Pro inherits Lite overlays and adds aim tools described on the product page. Verify each module against the live listing before you rely on it in PvP.',
     },
   ],
   elite: [
     {
       type: 'p',
-      text: 'Apex Elite is the private build for players who want everything—Loot Assist, Triggerbot, Recoil control, Legend loadout tools, full wall ESP and direct developer support. Limited slots keep the build maintainable and patch cycles fast.',
+      text: 'War Thunder Elite bundles the broadest module set and priority support when slots are open. Limited slots keep update cycles manageable—check the status banner before checkout.',
     },
     { type: 'h2', text: 'Use Elite responsibly' },
     {
       type: 'p',
-      text: 'Elite power demands disciplined profiles. Test in lobbies, start with portal conservative presets, and scale up over days—not minutes. Staff in Discord help Elite users tune before their first ranked queue.',
+      text: 'Test in Test Drive or custom rooms first; scale settings over multiple sessions. Discord staff can help tune profiles before competitive queues.',
     },
   ],
 };
@@ -248,36 +224,36 @@ const tierBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'Included modules' },
     {
       type: 'p',
-      text: 'Player ESP with distance and name tags, chest and reboot-van locator, loot spawn timers, radar cheat, and stream-safe overlay hiding. Config presets for Battle Royale and Ranked ship in the portal—load before your first queue.',
+      text: 'Typical Lite scope includes vehicle and threat ESP, distance readouts, radar-style overlays, and config presets—confirm the exact list on Zadeyo before purchase. Stream-proof modes may be available for recordings.',
     },
     { type: 'h2', text: 'Upgrade path' },
     {
       type: 'p',
-      text: 'Lite license holders can upgrade to Pro or Elite through the portal without losing config backups. Compare tiers on the main product page before checkout via our secure checkout.',
+      text: 'Lite license holders can upgrade through the portal when offered. Compare tiers on the main product page before checkout.',
     },
   ],
   pro: [
-    { type: 'h2', text: 'Aimbot and automation' },
+    { type: 'h2', text: 'Aim assistance' },
     {
       type: 'p',
-      text: 'Aimbot, Smooth Aim, Sticky Aim with Prediction, Bone Priority and hotkey macros for heals and mobility. Smoothness sliders tunes cast timing so aimbot stay natural in ranked. Start with portal presets, not max sliders.',
+      text: 'Pro adds aim-related modules on top of Lite. Follow the portal guide for smoothness, FOV or lead settings, and per-vehicle profiles if supported.',
     },
     { type: 'h2', text: 'Recommended pairing' },
     {
       type: 'p',
-      text: 'Pro is the most popular tier at apexlegendcheats.net—enough firepower for high-rank lobbies without Elite slot limits. Pair with our aimbot guide in the blog before your first ranked session.',
+      text: 'Pair Pro with our aim and ESP guides in the blog before your first online session.',
     },
   ],
   elite: [
-    { type: 'h2', text: 'Full bot and finish suite' },
+    { type: 'h2', text: 'Full module set' },
     {
       type: 'p',
-      text: 'Loot Assist, Rotation Assist AI, Triggerbot, Recoil control, Legend loadout tools and full wall ESP with smoke alerts. Use lobby testing before ranked—Elite power requires disciplined profiles, not rage settings.',
+      text: 'Elite includes Lite and Pro capabilities plus additional utilities listed on Zadeyo when slots are available. Read the listing for Triggerbot, advanced ESP layers, or other extras.',
     },
     { type: 'h2', text: 'Availability' },
     {
       type: 'p',
-      text: 'Elite shows as limited slots on the status banner. Open a Discord ticket if checkout is gated—staff confirm slot availability before purchase.',
+      text: 'Elite may show as limited on the status banner. Open a Discord ticket if checkout is gated.',
     },
   ],
 };
@@ -287,36 +263,36 @@ const utilityBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'When you need it' },
     {
       type: 'p',
-      text: 'Use when fresh EA accounts fail instantly on one PC but work elsewhere—classic HWID enforcement. Do not use for account-only Easy Anti-Cheat cases; see [UGC](/products/apex/ugc/) instead.',
+      text: 'Use when new accounts fail on one PC but work elsewhere—possible hardware enforcement. For account-only restrictions, review [UGC](/products/war-thunder/ugc/) instead.',
     },
     { type: 'h2', text: 'Full workflow' },
     {
       type: 'p',
-      text: 'Restore point, driver cleanup, spoof application, cold reboot, identifier verification, then conservative cheat profile before ranked. Full checklist ships in the portal and in our HWID blog guide.',
+      text: 'Create a restore point, follow the portal spoof guide, cold reboot, verify identifiers, then use a conservative cheat profile. Details ship in the portal and HWID blog guide.',
     },
   ],
-  'ugc': [
+  ugc: [
     { type: 'h2', text: 'What UGC covers' },
     {
       type: 'p',
-      text: 'UGC (Unban & Governance Control) is an appeal workspace for EA account restrictions, Easy Anti-Cheat bans, trade holds and security flags. Build custom workflows, automate dispute steps and track case status from one dashboard—not a guaranteed unban service.',
+      text: 'UGC (Unban & Governance Control) is an appeal workspace for account restrictions—custom workflows and tracking, not a guaranteed unban.',
     },
     { type: 'h2', text: 'Realistic expectations' },
     {
       type: 'p',
-      text: 'Some Easy Anti-Cheat bans cannot be reversed. UGC organizes evidence and follow-ups for EA review. Pair with [HWID Spoofer](/products/apex/hwid-spoofer/) when hardware is flagged, or a new account when reputation is burned.',
+      text: 'Some enforcement actions cannot be reversed. UGC helps organize evidence for review. Pair with [HWID Spoofer](/products/war-thunder/hwid-spoofer/) when hardware flags are involved.',
     },
   ],
   'unlock-all': [
     { type: 'h2', text: 'Local preview only' },
     {
       type: 'p',
-      text: 'Cosmetics display on your client for testing and content creation. Other players in your lobby see your actual inventory, not preview skins.',
+      text: 'Preview utilities show content on your client for testing. Other players see your real progression and inventory.',
     },
     { type: 'h2', text: 'Included with Elite' },
     {
       type: 'p',
-      text: 'Legend loadout tools ships inside the Elite tier. Buy standalone here if you want cosmetic preview without full combat modules.',
+      text: 'Bundled with Elite when listed on the product page. Buy standalone if you want previews without full combat modules.',
     },
   ],
 };
@@ -329,28 +305,22 @@ const productContent: Record<
     images: productDetailGallery(),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: apexSystemRequirements,
+    systemRequirements: wtSystemRequirements,
     fullFeatures: [
-      'Player ESP & player boxes',
-      'Chest & loot locator',
-      'POI awareness',
-      'Health & shield tracking',
-      'Mini-radar overlay',
-      'Streamproof overlay mode',
-      'Distance readouts',
-      'Team color filter',
-      'Loot spawn timers',
-      'Radar cheat',
-      'Ranked preset config',
-      'Ranked preset config',
+      'Vehicle ESP & threat markers',
+      'Distance and name readouts',
+      'Radar-style overlay',
+      'Configurable overlay colors',
+      'Stream-proof overlay option (if listed)',
+      'Map awareness presets',
       'Cloud config backup',
-      'Patch auto-updater',
+      'Patch-day status checks',
     ],
     overview: {
-      title: 'Apex Lite: ESP and radar',
+      title: 'War Thunder Lite: ESP and radar',
       paragraphs: [
-        'Lite is for player ESP, chest markers, loot timers and radar. No aimbot. Set distance, colors and stream-proof in the portal before you queue.',
-        'Best if you want awareness in Battle Royale and Ranked without combat automation. Overlays are updated after Apex Legends patches.',
+        'Lite focuses on ESP, vehicle information, and radar-style overlays without aim automation. Configure range and clutter before online play.',
+        'Best if you want awareness in Air RB, Ground RB, AB, or Simulator playlists—confirm mode coverage on the Zadeyo listing.',
       ],
     },
   },
@@ -358,29 +328,23 @@ const productContent: Record<
     images: productDetailGallery(),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: apexSystemRequirements,
+    systemRequirements: wtSystemRequirements,
     fullFeatures: [
-      'All Lite ESP & wall ESP modules',
-      'Aimbot',
-      'Smooth Aim',
-      'Sticky Aim & Prediction',
-      'Bone Priority',
-      'Hotkey macros (heals/shields)',
-      'Auto Heal',
-      'FOV & smoothness tuning',
-      'Per-weapon aimbot profiles',
-      'Third-party alert integration',
-      'Ranked-safe default presets',
-      'Lobby test profile',
+      'All Lite awareness modules',
+      'Configurable aim assistance',
+      'Smoothness / lead tuning',
+      'Visibility checks (as listed)',
+      'Per-vehicle profiles (if supported)',
+      'Portal conservative presets (verify mode rules)',
+      'Test profile for Test Drive',
       'Cloud config backup',
-      'Patch auto-updater',
-      'Discord operator support',
+      'Loader update prompts',
     ],
     overview: {
-      title: 'Apex Pro: aimbot plus ESP',
+      title: 'War Thunder Pro: aim assistance plus ESP',
       paragraphs: [
-        'Pro includes everything in Lite, plus Aimbot, Smooth Aim, Sticky Aim and hotkey macros. Aim settings live in one tab. Start with a portal preset, not max sliders.',
-        'Most people pick Pro for Battle Royale and Ranked. Bone priority and macros help in fights while defaults stay smooth.',
+        'Pro adds aim tools on top of Lite. Start from portal defaults and adjust over multiple sessions.',
+        'Popular for players who already read the map and want combat assistance—verify modules on the live product page.',
       ],
     },
   },
@@ -388,44 +352,35 @@ const productContent: Record<
     images: productDetailGallery(),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: apexSystemRequirements,
+    systemRequirements: wtSystemRequirements,
     fullFeatures: [
-      'All Lite + Pro modules',
-      'Loot Assist',
-      'Rotation Assist AI',
-      'Chest respawn timer',
-      'Auto loadout manager',
-      'Triggerbot',
-      'Recoil control',
-      'Full wall ESP suite',
-      'Third-party alert system',
-      'Visibility detector',
-      'Legend loadout tools (Loadout Pack)',
-      'Priority patch queue',
-      'Direct dev Discord support',
-      'Elite conservative presets',
-      'Cloud config backup',
-      'Patch auto-updater',
-      'Private slot access',
+      'Lite + Pro modules',
+      'Advanced ESP layers (as listed)',
+      'Triggerbot (if listed)',
+      'Recoil or ballistics helpers (if listed)',
+      'Priority patch queue (when slots open)',
+      'Direct Discord support (when offered)',
+      'Preview / utility bundles (if listed)',
+      'Private slot access (when gated)',
     ],
     overview: {
-      title: 'Elite: full cheat + extras',
+      title: 'Elite: full suite',
       paragraphs: [
-        'Elite includes Lite and Pro modules, plus loot assist, Triggerbot, Recoil control, Legend loadout tools, full wall ESP and faster patch priority.',
-        'Elite slots are limited. Discord support helps you set safer profiles before ranked matchmaking. Check the status banner on apexlegendcheats.net before you buy Elite access.',
+        'Elite includes the broadest module set described on Zadeyo. Check the status banner on cheatswarthunder.net before purchase.',
+        'Limited slots may apply—confirm on the listing or with Discord before paying.',
       ],
     },
   },
   'hwid-spoofer': {
     images: slide('gpEspIndoor', 'gpEspWallhack', 'gpGameplay'),
     goodToKnow:
-      'Run the compatibility scan in the portal before spoofing. Create a Windows restore point first. Verify identifiers changed after a cold reboot before launching Apex Legends.',
+      'Run the compatibility scan in the portal before spoofing. Create a Windows restore point first. Verify identifiers after a cold reboot before launching War Thunder.',
     limitations:
-      'Spoofing does not help account-only Easy Anti-Cheat cases. Never stack two spoof tools. Shared or work PCs may not be suitable. You accept all risk from driver-level changes.',
+      'Spoofing does not fix pure account-only cases. Never stack two spoof tools. Shared PCs may not be suitable. You accept risk from driver-level changes.',
     systemRequirements: [
       { icon: 'reqWindows', text: 'Windows 10 or 11 64-bit with administrator access.' },
       { icon: 'reqRestorePoint', text: 'Ability to create a system restore point before running.' },
-      { icon: 'reqShieldGuide', text: 'Follow the portal setup guide before launching Apex Legends after spoofing.' },
+      { icon: 'reqShieldGuide', text: 'Follow the portal setup guide before launching War Thunder after spoofing.' },
       { icon: 'reqWifi', text: 'Stable connection for portal verification tools.' },
     ],
     fullFeatures: [
@@ -437,71 +392,65 @@ const productContent: Record<
       'Post-spoof verification',
       'Identifier diff report',
       'Cold reboot guide',
-      'Portal step-by-step workflow',
+      'Portal workflow',
       'Discord recovery support',
     ],
     overview: {
-      title: 'HWID Spoofer for Apex Legends PC bans',
+      title: 'HWID Spoofer for War Thunder PC',
       paragraphs: [
-        'Use the HWID Spoofer when Easy Anti-Cheat flags your PC hardware but the EA account is still fine. Includes disk and MAC tools, a restore-point checklist, a compatibility scan and post-spoof checks.',
-        'Use it when new accounts die on one PC but work on another. It does not fix account-only Easy Anti-Cheat bans. After spoofing, use a safer cheat profile before ranked matchmaking.',
+        'Hardware-focused tools when identifiers appear flagged. Includes scans, restore guidance, and verification steps from the portal.',
+        'Not a substitute for legitimate account recovery—pair with UGC workflows when restrictions are account-based.',
       ],
     },
   },
   ugc: {
     images: slide('gpEspWallhack', 'gpAimbotEsp', 'gpEspIndoor').map((img, index) =>
-      index === 0 ? { ...img, alt: `Ugc – ${img.alt}` } : img,
+      index === 0 ? { ...img, alt: `UGC – ${img.alt}` } : img,
     ),
     goodToKnow:
-      'Gather order email, platform account details and restriction screenshots before opening a ticket. UGC structures appeals—it does not bypass platform review.',
+      'Gather order email, platform details, and restriction screenshots before opening a ticket. UGC structures appeals—it does not bypass publisher review.',
     limitations:
-      'UGC does not guarantee account restoration. Results vary by case type. Permanent Easy Anti-Cheat bans may require a new account path instead of appeal.',
+      'UGC does not guarantee account restoration. Outcomes vary by case type.',
     systemRequirements: [
-      { icon: 'reqMailOrder', text: 'Order email used at checkout on apexlegendcheats.net or at checkout on apexlegendcheats.net.' },
-      { icon: 'reqShieldAccount', text: 'Account details and ban or restriction notification if available.' },
-      { icon: 'reqWifiPortal', text: 'Internet access for Discord support and case dashboard.' },
+      { icon: 'reqMailOrder', text: 'Order email used at checkout.' },
+      { icon: 'reqShieldAccount', text: 'Account details and restriction notices if available.' },
+      { icon: 'reqWifiPortal', text: 'Internet access for Discord and the case dashboard.' },
     ],
     fullFeatures: [
-      'Custom appeal workflows',
-      'Restriction dispute automation',
-      'Case documentation templates',
+      'Appeal workflow templates',
+      'Case documentation structure',
       'Status tracking dashboard',
-      'Identity verification guide',
-      'Evidence upload structure',
+      'Evidence upload guide',
       'Timeline tracker',
-      'Follow-up response templates',
-      'Multi-platform support',
+      'Follow-up templates',
     ],
     overview: {
       title: 'UGC account appeal tools',
       paragraphs: [
-        'UGC (Unban & Governance Control) helps you organize appeals for EA account restrictions and Easy Anti-Cheat bans. UGC does not guarantee an unban.',
-        'Use UGC when you have documentation, order email and platform notices ready. Pair with HWID tools only when hardware flags—not account-only bans—are involved.',
+        'UGC helps organize appeals and disputes for War Thunder account issues. It is not a guaranteed unban service.',
+        'Use when you have documentation ready; pair with HWID tools only for hardware-related flags.',
       ],
     },
   },
   'unlock-all': {
     images: slide('gpGameplay', 'gpEspWallhack', 'gpAimbotEsp'),
     goodToKnow:
-      'Loadout Pack previews cosmetics locally on your client. Other players in your lobby see your real inventory—not preview skins. Included with Elite tier.',
+      'Previews display locally on your client. Others see your real progression. Bundled with Elite when the listing says so.',
     limitations:
-      'Local preview only—does not modify in-game inventory or store state. Other players cannot see previewed skins or sets.',
-    systemRequirements: apexSystemRequirements,
+      'Local preview only—does not grant marketplace purchases or server-side unlocks.',
+    systemRequirements: wtSystemRequirements,
     fullFeatures: [
-      'Outfit skin swap',
-      'Skin & wrap preview',
-      'Pickaxe & wrap customizer',
-      'Loading screen editor',
-      'Cursor & HUD theme',
-      'Chest & loot replacer',
+      'Vehicle preview',
+      'Skin / camo preview (if listed)',
+      'Hangar preview tools',
+      'Loadout export (if listed)',
       'Favorites list',
-      'Loadout export',
     ],
     overview: {
-      title: 'Legend loadout tools / Loadout Pack',
+      title: 'Hangar & vehicle preview tools',
       paragraphs: [
-        'Legend loadout tools / Loadout Pack lets you preview outfits, camos and attachments on your Apex Legends client. Legend loadout tools does not change your in-game inventory or store purchases.',
-        'Only you see the preview skins. Other players see your real inventory. Included with Elite, or buy Legend loadout tools alone without combat modules.',
+        'Preview vehicles and cosmetics locally. Does not change server-side unlocks or purchases.',
+        'Included with Elite when listed, or available standalone for preview-only workflows.',
       ],
     },
   },
@@ -511,7 +460,8 @@ function buildTierPages(): ProductPage[] {
   return t.cheats.items.map((cheat) => {
     const slug = slugFromHref(cheat.href);
     const content = productContent[slug];
-    const displayName = cheat.name === 'Lite' ? 'Apex Lite' : cheat.name === 'Pro' ? 'Apex Pro' : 'Apex Elite';
+    const displayName =
+      cheat.name === 'Lite' ? 'War Thunder Lite' : cheat.name === 'Pro' ? 'War Thunder Pro' : 'War Thunder Elite';
     return {
       slug,
       kind: 'tier',
@@ -590,14 +540,12 @@ export function getAllCheatSlugs() {
   return cheatPages.map((p) => p.slug);
 }
 
-const cheatsHubSlides = slide('gpAimbotEsp', 'gpEspWallhack', 'gpGameplay');
-
 export const heroSlides = slide('gpAimbotEsp', 'gpEspWallhack', 'gpGameplay', 'gpEspIndoor', 'gpCourtyard');
 
 export const productHub = {
   path: productBase,
   title: t.products.title,
   subtitle: t.products.subtitle,
-  description: 'Apex Elite cheats with aimbot and ESP, plus HWID spoofer, UGC recovery and Legend loadout tools for PC.',
-  buyUrl: checkoutPath('apex'),
+  description: 'War Thunder cheats with ESP and aim options, plus HWID, UGC, and preview tools for PC.',
+  buyUrl: checkoutPath('warThunder'),
 };

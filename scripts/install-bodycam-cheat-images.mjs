@@ -1,6 +1,7 @@
 /**
- * Install the four approved Apex Legends hack screenshots into public/images/.
- * Run: node scripts/install-r6-hack-images.mjs
+ * Legacy helper to copy approved hack screenshots into public/images/.
+ * Run: node scripts/install-bodycam-cheat-images.mjs
+ * Site-visible media for War Thunder is configured in src/config/siteImages.ts.
  */
 import fs from 'node:fs';
 import path from 'node:path';

@@ -29,18 +29,18 @@ function link(text: string, href: string): string {
   return `<a href="${normalizeInternalPath(href)}">${text}</a>`;
 }
 
-function expandFaqAnswer(answer: string, faqId: string): string {
+function expandFaqAnswer(answer: string, _faqId: string): string {
   if (!answer.includes('{{')) return answer;
   const slots: Record<string, string> = {
-    ELITE: link(`Elite tier checkout (${faqId})`, productPath('elite')),
-    LITE: link(`Lite ESP tier (${faqId})`, productPath('lite')),
-    PRO: link(`Pro aimbot tier (${faqId})`, productPath('pro')),
-    PRODUCTS_HUB: link(`Full Apex catalog (${faqId})`, ROUTES.products),
-    HWID: link(`HWID spoofer utility — ${faqId}`, productPath('hwid-spoofer')),
-    UGC: link(`UGC appeal tools — ${faqId}`, productPath('ugc')),
-    SKIN: link(`Legend loadout tools pack — ${faqId}`, productPath('unlock-all')),
-    FAQ_PAGE: link(`Full FAQ index — ${faqId}`, ROUTES.faq),
-    BLOG: link(`Apex blog guides — ${faqId}`, ROUTES.blog),
+    ELITE: link('Elite tier', productPath('elite')),
+    LITE: link('Lite (ESP)', productPath('lite')),
+    PRO: link('Pro tier', productPath('pro')),
+    PRODUCTS_HUB: link('War Thunder products', ROUTES.products),
+    HWID: link('HWID spoofer', productPath('hwid-spoofer')),
+    UGC: link('UGC', productPath('ugc')),
+    SKIN: link('Hangar preview tools', productPath('unlock-all')),
+    FAQ_PAGE: link('FAQ', ROUTES.faq),
+    BLOG: link('War Thunder blog', ROUTES.blog),
   };
   return Object.entries(slots).reduce(
     (text, [key, html]) => text.replaceAll(`{{${key}}}`, html),
@@ -57,124 +57,124 @@ const rawSiteFaqs: SiteFaqItem[] = [
     id: 'status',
     topic: 'setup',
     icon: 'faqStatus',
-    q: 'Where do I check if Apex Legends cheats are online?',
-    a: a('The live status banner is on apexlegendcheats.net and in the Discord #status channel. Always check after a Apex Legends or Easy Anti-Cheat update.'),
+    q: 'Where do I check if War Thunder cheats are online?',
+    a: a('The live status banner is on cheatswarthunder.net and in Discord #status. Check after War Thunder client updates.'),
   },
   {
     id: 'after-buy',
     topic: 'setup',
     icon: 'faqAfterBuy',
     q: 'What happens after I buy?',
-    a: a('Your portal unlocks the loader, setup guide and config library via our secure checkout. Follow the guide before launching Apex Legends.'),
+    a: a('Checkout on Zadeyo unlocks the portal with the loader and setup guide. Follow the guide before launching War Thunder.'),
   },
   {
     id: 'pricing',
     topic: 'plans',
     icon: 'faqComparePlans',
-    q: 'How much do Apex Legends cheats cost?',
-    a: a('Checkout plans are Monthly for $35 (31 days of access) and Lifetime for $150 (unlimited access). Both include the same Apex Legends trainer modules at Zadeyo checkout.'),
+    q: 'How much do War Thunder cheats cost?',
+    a: a('Plans and prices are shown on the Zadeyo checkout screen. This site does not list a live dollar amount because offers can change.'),
   },
   {
     id: 'ban-risk',
     topic: 'safety',
     icon: 'faqBanRisk',
-    q: 'Can I get banned using third-party Apex Legends cheats?',
-    a: a('Yes—any modification carries risk. Easy Anti-Cheat and report systems evolve. Read current status and accept the risk before use.'),
+    q: 'Can I get banned using third-party tools?',
+    a: a('Yes—any modification carries enforcement risk. Read current status and accept the risk before use.'),
   },
   {
     id: 'platforms',
     topic: 'setup',
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
-    a: a('Apex Legends via EA Connect on Windows 10/11 64-bit only. macOS and Linux are not supported.'),
+    a: a('War Thunder on Windows 10/11 64-bit through the supported PC client. Consoles are not covered here.'),
   },
   {
     id: 'license-move',
     topic: 'setup',
     icon: 'faqLicenseMove',
     q: 'Can I move my license to a new PC?',
-    a: a('Yes—use the HWID reset in your portal or open a Discord ticket. Limits depend on your tier.'),
+    a: a('Yes—use the HWID reset in your portal or open a Discord ticket. Limits depend on tier and seller policy.'),
   },
   {
     id: 'products-page',
     topic: 'products',
     icon: 'faqProductsPage',
     q: 'Where are products and utilities listed?',
-    a: `{{PRODUCTS_HUB}} lists cheat tiers, {{HWID}}, {{UGC}}, and {{SKIN}} with feature lists and checkout via our partner.`,
+    a: `{{PRODUCTS_HUB}} lists cheat tiers, {{HWID}}, {{UGC}}, and {{SKIN}} with feature summaries. Checkout uses the same Zadeyo link site-wide.`,
   },
   {
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
-    q: 'What is Apex Legends wall ESP / ESP?',
-    a: `wall ESP and player ESP show enemy positions, chests, loot and POI camps through storm circle. {{LITE}} covers awareness overlays. {{PRO}} and {{ELITE}} add script modules on top.`,
+    q: 'What is vehicle ESP?',
+    a: `Vehicle ESP shows aircraft and ground threats with distance and marker info. {{LITE}} covers awareness overlays. {{PRO}} and {{ELITE}} add aim assistance when listed.`,
     scopes: ['lite', 'pro', 'elite'],
   },
   {
     id: 'esp-vs-scripts',
     topic: 'esp',
     icon: 'faqEspVsScripts',
-    q: 'What is the difference between wall ESP and aimbot?',
-    a: `wall ESP and ESP are information overlays—they do not cast abilities. Aimbot, Smooth Aim and Sticky Aim are aimbot on {{PRO}} and {{ELITE}}. You can run awareness-only on {{LITE}}.`,
+    q: 'What is the difference between ESP and aim assistance?',
+    a: `ESP is informational. Aim assistance adjusts input—available on {{PRO}} and {{ELITE}} when the listing includes it. {{LITE}} stays awareness-only.`,
   },
   {
     id: 'which-tier-esp',
     topic: 'plans',
     icon: 'faqWhichTierEsp',
-    q: 'Which tier do I need for wall ESP only?',
-    a: `{{LITE}} is awareness only: player ESP, chest locator, loot timers and radar cheat. {{PRO}} adds aimbot. {{ELITE}} adds bots, kill steal and Legend loadout tools.`,
+    q: 'Which tier is ESP-only?',
+    a: `{{LITE}} is awareness-focused: vehicle ESP, radar-style overlays, and map tools. {{PRO}} adds aim modules.`,
     scopes: ['lite'],
   },
   {
     id: 'which-tier-scripts',
     topic: 'scripts',
     icon: 'faqWhichTierScripts',
-    q: 'Which tier includes Aimbot?',
-    a: `{{PRO}} ships Aimbot, Smooth Aim, Sticky Aim and Hotkey macros. {{ELITE}} includes everything in Pro plus Loot Assist and Triggerbot. {{LITE}} has no aimbot automation.`,
+    q: 'Which tier includes aim assistance?',
+    a: `{{PRO}} adds aim assistance on top of Lite. {{ELITE}} includes the full stack when slots and listings allow. {{LITE}} has no aim automation.`,
     scopes: ['pro'],
   },
   {
     id: 'rank-lite-vs-pro',
     topic: 'plans',
     icon: 'faqRankTiers',
-    q: 'How do you rank Lite vs Pro vs Elite?',
-    a: `Map awareness only → {{LITE}}. Ranked gunfights with aimbot → {{PRO}}. Full bot suite and priority patches → {{ELITE}}. Compare on each cheat page or the {{FAQ_PAGE}}.`,
+    q: 'How do Lite, Pro, and Elite compare?',
+    a: `Map awareness → {{LITE}}. Aim assistance → {{PRO}}. Full module set and extras → {{ELITE}}. Compare cheat pages or {{FAQ_PAGE}}.`,
   },
   {
     id: 'elite-slots',
     topic: 'plans',
     icon: 'faqEliteSlots',
-    q: 'Why is Elite limited slots?',
-    a: `Elite is a private build with direct dev support and priority patch delivery. Slot caps keep patch cycles fast. Check the status banner before checkout.`,
+    q: 'Why is Elite sometimes limited?',
+    a: `Elite may cap users to keep support responsive. Check the status banner and Zadeyo listing before checkout.`,
     scopes: ['elite'],
   },
   {
     id: 'stream-proof',
     topic: 'esp',
     icon: 'faqStreamProof',
-    q: 'Can OBS capture my overlay?',
-    a: `Stream-proof mode on {{LITE}}, {{PRO}} and {{ELITE}} hides overlays from OBS and Discord share. Test a local recording before going live.`,
+    q: 'Can stream software capture my overlay?',
+    a: `When stream-proof options exist, test OBS/Game Capture locally before going live. See {{BLOG}} for setup guides.`,
   },
   {
     id: 'undetected',
     topic: 'safety',
     icon: 'faqUndetected',
-    q: 'Are undetected Apex Legends cheats guaranteed?',
-    a: a('No. Undetected is current status on the product page—not a permanent guarantee. Stop if the build shows updating, testing, or detected.'),
+    q: 'Are undetected cheats guaranteed?',
+    a: a('No. Status is a point-in-time label. Stop when the banner shows updating or offline.'),
   },
   {
     id: 'esp-safer',
     topic: 'safety',
     icon: 'faqEspSafer',
-    q: 'Is wall ESP safer than aimbot?',
-    a: a('ESP is quieter in replay than obvious bot patterns, but it is still a cheat. Easy Anti-Cheat does not ignore overlays because you left aimbot off.'),
+    q: 'Is ESP safer than aim assistance?',
+    a: a('ESP can be subtler, but both violate fair play rules when prohibited. Enforcement does not ignore ESP.'),
   },
   {
     id: 'hwid-when',
     topic: 'products',
     icon: 'faqHwidWhen',
     q: 'When do I need the HWID Spoofer?',
-    a: `Use {{HWID}} when fresh EA accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only Easy Anti-Cheat cases; see {{UGC}} instead.`,
+    a: `Use {{HWID}} when new accounts fail on one PC but work elsewhere. Account-only issues may need {{UGC}} instead.`,
     scopes: ['hwid-spoofer'],
   },
   {
@@ -182,15 +182,15 @@ const rawSiteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqUgcWhat',
     q: 'What is UGC?',
-    a: `{{UGC}} (Unban & Governance Control) is an appeal workspace for EA account restrictions and Easy Anti-Cheat bans—custom workflows and case tracking, not a guaranteed unban service.`,
+    a: `{{UGC}} helps organize appeals and disputes—not a guaranteed unban.`,
     scopes: ['ugc'],
   },
   {
     id: 'skin-changer',
     topic: 'products',
     icon: 'faqSkinChanger',
-    q: 'Does Legend loadout tools modify my in-game inventory?',
-    a: `{{SKIN}} previews cosmetics locally on your client. Other players see your real inventory. Included with {{ELITE}}; available standalone for cosmetic preview only.`,
+    q: 'Do hangar previews change server unlocks?',
+    a: `{{SKIN}} previews locally. Opponents see your real account. Included with {{ELITE}} when listed.`,
     scopes: ['unlock-all'],
   },
   {
@@ -198,35 +198,35 @@ const rawSiteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqExternalLoader',
     q: 'Is the loader injected into the game folder?',
-    a: `Apex Legends Cheats runs external with cloud config sync—no files injected into the Apex Legends directory. Easy Anti-Cheat risk still applies. See {{PRODUCTS_HUB}}.`,
+    a: `Follow the portal guide—most builds keep files out of the War Thunder directory, but risk still exists. See {{PRODUCTS_HUB}}.`,
   },
   {
     id: 'blog-vs-cheats',
     topic: 'blog',
     icon: 'faqBlogVsCheats',
-    q: 'Are blog cheat codes the same as ranked cheats?',
-    a: `No. Blog articles about Steam console commands apply only in custom lobbies with cheats enabled. Ranked Apex Legends cheats are separate products—see {{LITE}}, {{PRO}} and {{ELITE}}.`,
+    q: 'Are Test Drive settings the same as paid cheats?',
+    a: a('No. Test Drive is practice only. Online tools come from checkout tiers.'),
   },
   {
     id: 'blog-setup',
     topic: 'blog',
     icon: 'faqBlogSetup',
-    q: 'Where do blog setup guides point for purchase?',
-    a: `Guides link to tier pages and {{PRODUCTS_HUB}}. Checkout runs through our secure partner—never paste loader files from random Discord DMs.`,
+    q: 'Where do guides point for purchase?',
+    a: `Guides link to tier pages and {{PRODUCTS_HUB}}. Checkout is always the Zadeyo link on buy buttons.`,
   },
   {
     id: 'compare-plans',
     topic: 'plans',
     icon: 'faqComparePlans',
-    q: 'Where do I compare plans side by side?',
-    a: `Each cheat tier page includes a compare table. The {{FAQ_PAGE}} collects product, cheat and blog answers in one place.`,
+    q: 'Where can I compare plans?',
+    a: `Each tier page has feature tables. {{FAQ_PAGE}} aggregates common answers.`,
   },
   {
     id: 'who-lite',
     topic: 'plans',
     icon: 'faqWhoLite',
     q: 'Who should stay on Lite?',
-    a: `Players who only want map awareness—ESP, chests, loot—and will not touch aimbot automation. If you keep enabling combo aimbot, buy {{PRO}} instead.`,
+    a: `Players who want overlays only. If you need aim assistance, buy {{PRO}}.`,
     scopes: ['lite'],
   },
   {
@@ -234,7 +234,7 @@ const rawSiteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoPro',
     q: 'Who should buy Pro?',
-    a: `Ranked players who want Aimbot, Smooth Aim and Hotkey macros with wall ESP included. Pro is the most popular tier at apexlegendcheats.net.`,
+    a: `Players who want aim assistance with ESP. Confirm modules on Zadeyo.`,
     scopes: ['pro'],
   },
   {
@@ -242,59 +242,59 @@ const rawSiteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoElite',
     q: 'Who should buy Elite?',
-    a: `Operators who want Loot Assist, Triggerbot, Legend loadout tools and priority patch delivery when slots are open.`,
+    a: `Players who want every module when slots exist.`,
     scopes: ['elite'],
   },
   {
     id: 'eac-update',
     topic: 'safety',
     icon: 'faqEacUpdate',
-    q: 'What should I do after a Easy Anti-Cheat update?',
-    a: a('Check apexlegendcheats.net status and Discord #status. Do not launch until the banner shows online. Load conservative presets after any patch.'),
+    q: 'What should I do after a major patch?',
+    a: a('Check cheatswarthunder.net and Discord #status. Reload the portal loader and use conservative settings.'),
   },
   {
     id: 'discord-help',
     topic: 'setup',
     icon: 'faqDiscordHelp',
     q: 'How do I get install help?',
-    a: a('Open Discord after purchase with your order email, Windows version and Apex Legends client build. Staff walk through loader setup live.'),
+    a: a('Join Discord with order email, Windows build, and War Thunder client channel (Steam or standalone).'),
   },
   {
     id: 'zero-build-ranked',
     topic: 'plans',
     icon: 'faqZoomRanked',
-    q: 'Do tiers work in Ranked and ranked?',
-    a: `Yes—{{LITE}}, {{PRO}} and {{ELITE}} include Ranked and ranked presets in the portal. Tune distance caps and script delay before your first queue.`,
+    q: 'Do tiers work in Realistic Battles?',
+    a: `Yes when the listing includes your mode. Always verify current support before queueing.`,
   },
   {
     id: 'zoom-cheat',
     topic: 'esp',
     icon: 'faqZoomHack',
-    q: 'Which tier includes radar cheat?',
-    a: `Radar ships on {{LITE}} and carries through {{PRO}} and {{ELITE}}. Mini-radar helps zone awareness without guessing rotates.`,
+    q: 'Which tier includes radar overlays?',
+    a: `Radar-style tools ship on {{LITE}} and carry up through {{PRO}} and {{ELITE}} when listed.`,
     scopes: ['lite'],
   },
   {
     id: 'auto-farm',
     topic: 'scripts',
     icon: 'faqAutoFarm',
-    q: 'Which tier includes Loot Assist?',
-    a: `Loot Assist, Rotation Assist AI and Auto loadout manager are {{ELITE}} only. {{PRO}} covers combat aimbot without bot farming.`,
+    q: 'Which tier has the most automation?',
+    a: `Automation extras such as Triggerbot appear on {{ELITE}} when Zadeyo lists them—not assumed for every season.`,
     scopes: ['elite'],
   },
   {
     id: 'private-cheats',
     topic: 'safety',
     icon: 'faqPrivateCheats',
-    q: 'What are private Apex Legends cheats?',
-    a: a('Private means per-user keys and maintained builds—not public zip packs. Apex Legends Cheats ships portal delivery for ESP, aimbot and wall ESP tiers.'),
+    q: 'What does private mean?',
+    a: a('Private builds are maintained with per-user keys—not public downloads from random sites.'),
   },
   {
     id: 'faq-more',
     topic: 'all',
     icon: 'faqMore',
     q: 'Where is the full FAQ?',
-    a: `This site includes landing FAQs and per-page sections. See the {{FAQ_PAGE}} for all product, cheat and blog answers—or read {{BLOG}} for deep guides.`,
+    a: `See {{FAQ_PAGE}} for every topic or {{BLOG}} for long guides.`,
   },
 ];
 
@@ -313,25 +313,17 @@ export function getAllFaqs(): SiteFaqItem[] {
 /** Shared FAQ block copy + filters (home, /faq/, products, blog). */
 export const SITE_FAQ_SECTION_COPY = {
   eyebrow: 'All topics',
-  title: 'Apex Legends cheats FAQ',
-  subtitle: 'Filter by cheat plans, wall ESP, aimbot, products, setup and guides.',
+  title: 'War Thunder cheats FAQ',
+  subtitle: 'Filter by plans, ESP, aim assistance, products, setup and guides.',
 } as const;
 
-export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = [
-  'all',
-  'plans',
-  'esp',
-  'safety',
-  'products',
-  'blog',
-  'setup',
-];
+export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = ['all', 'plans', 'esp', 'safety', 'products', 'blog', 'setup'];
 
 /** Section copy when FAQ list is scoped to the current page (not /faq/). */
 export const CONTEXTUAL_FAQ_SECTION_COPY = {
   eyebrow: 'Cheat FAQ',
-  title: 'Apex Legends cheats questions',
-  subtitle: 'Straight answers on aimbot, ESP, bans and setup — see the full FAQ for every topic.',
+  title: 'War Thunder questions',
+  subtitle: 'Straight answers on ESP, aim assistance, bans and setup.',
 } as const;
 
 export function faqFilterTopicsForItems(items: SiteFaqItem[]): FaqTopic[] {
@@ -345,9 +337,7 @@ export function faqFilterTopicsForItems(items: SiteFaqItem[]): FaqTopic[] {
 
 export function getProductFaqs(slug: string, kind: 'tier' | 'utility'): SiteFaqItem[] {
   const general = siteFaqs.filter(
-    (f) =>
-      !f.scopes &&
-      ['setup', 'safety', 'plans', 'esp', 'scripts'].includes(f.topic),
+    (f) => !f.scopes && ['setup', 'safety', 'plans', 'esp', 'scripts'].includes(f.topic),
   );
   const scoped = siteFaqs.filter((f) => f.scopes?.includes(slug));
   const tierCompare = siteFaqs.filter((f) =>
@@ -355,9 +345,7 @@ export function getProductFaqs(slug: string, kind: 'tier' | 'utility'): SiteFaqI
   );
 
   const combined =
-    kind === 'tier'
-      ? [...scoped, ...tierCompare, ...general.slice(0, 8)]
-      : [...scoped, ...general.slice(0, 6)];
+    kind === 'tier' ? [...scoped, ...tierCompare, ...general.slice(0, 8)] : [...scoped, ...general.slice(0, 6)];
 
   const seen = new Set<string>();
   return combined.filter((item) => {
@@ -373,22 +361,22 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       id: 'blog-guide-start',
       topic: 'blog',
       icon: 'faqBlogGuideStart',
-      q: 'Should I use console cheat codes in ranked?',
-      a: a('No. Firing Range lobby cheat codes only work in custom games with cheats enabled. Ranked requires separate Apex Legends cheats from apexlegendcheats.net tiers.'),
+      q: 'Should I reuse Test Drive tricks in ranked play?',
+      a: a('Test Drive helps you practice. Online cheats require checkout tiers—keep those separate.'),
     },
     {
       id: 'blog-guide-tier',
       topic: 'blog',
       icon: 'faqBlogGuideTier',
       q: 'Which tier matches this guide?',
-      a: `Awareness guides → {{LITE}}. Script and combo guides → {{PRO}}. Bot and kill-steal topics → {{ELITE}}.`,
+      a: `Awareness topics → {{LITE}}. Aim topics → {{PRO}}. Full stack → {{ELITE}}.`,
     },
     {
       id: 'blog-guide-status',
       topic: 'blog',
       icon: 'faqBlogGuideStatus',
       q: 'Is this guide still valid after a patch?',
-      a: a('Check the article date and the live status banner. Patch-day articles note when modules change—Discord #status has the latest build notes.'),
+      a: a('Check the article date and live status banner. Discord #status has current build notes.'),
     },
   ],
   Setup: [
@@ -397,14 +385,14 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogSetupLoader',
       q: 'Where do I download the loader?',
-      a: a('Only from your customer portal after checkout—not from third-party links in comments or DMs.'),
+      a: a('Only from the customer portal after checkout.'),
     },
     {
       id: 'blog-setup-lobby',
       topic: 'blog',
       icon: 'faqBlogSetupLobby',
-      q: 'Should I test in a lobby first?',
-      a: a('Yes. Load conservative presets in a lobby or Ranked before ranked. Tune script delay and ESP distance caps over several sessions.'),
+      q: 'Should I test in Test Drive first?',
+      a: a('Yes—verify ESP range and aim smoothing before competitive modes.'),
     },
   ],
   Security: [
@@ -412,8 +400,8 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       id: 'blog-sec-eac',
       topic: 'blog',
       icon: 'faqBlogSecEac',
-      q: 'Does this article guarantee undetected status?',
-      a: a('No article replaces the live status banner. Undetected is a point-in-time label—stop if status shows updating or detected.'),
+      q: 'Does this article guarantee safety?',
+      a: a('No article replaces the live banner. Stop if status shows offline or updating.'),
     },
   ],
 };
@@ -423,22 +411,22 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     id: 'blog-default-1',
     topic: 'blog',
     icon: 'faqBlogDefault1',
-    q: 'Are blog guides official product documentation?',
-    a: `Articles explain workflows and link to {{LITE}}, {{PRO}}, {{ELITE}} and {{PRODUCTS_HUB}}. Feature lists on product pages are authoritative for checkout.`,
+    q: 'Are blog guides official documentation?',
+    a: `Articles explain workflows and link to tiers. Zadeyo remains authoritative for checkout.`,
   },
   {
     id: 'blog-default-2',
     topic: 'blog',
     icon: 'faqBlogDefault2',
     q: 'Need help applying this guide?',
-    a: a('Open Discord with your order email and the article slug. Staff reference the same portal presets mentioned in guides.'),
+    a: a('Open Discord with order email and article slug.'),
   },
   {
     id: 'blog-default-3',
     topic: 'blog',
     icon: 'faqBlogDefault3',
-    q: 'Will settings in this article work next patch?',
-    a: a('Re-check status after every Apex Legends update. Portal presets update with patch notes—reload configs instead of copying old sliders.'),
+    q: 'Will these settings work next patch?',
+    a: a('Re-check status after War Thunder updates. Reload presets instead of copying old files.'),
   },
 ];
 
@@ -446,31 +434,31 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
   const topicFaqs = blogTopicFaqs[tag] ?? [];
   const slugHints: SiteFaqItem[] = [];
 
-  if (slug.includes('map-cheat') || slug.includes('esp') || slug.includes('ward')) {
+  if (slug.includes('esp') || slug.includes('radar')) {
     slugHints.push({
       id: 'blog-slug-esp',
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
-      q: 'Which tier covers wall ESP from this article?',
-      a: `{{LITE}} includes player ESP, chest locator and loot timers. {{PRO}} adds combat aimbot on the same overlay stack.`,
+      q: 'Which tier covers ESP from this article?',
+      a: `{{LITE}} includes vehicle ESP overlays. {{PRO}} adds aim assistance.`,
     });
   }
-  if (slug.includes('script') || slug.includes('combo') || slug.includes('auto-combo')) {
+  if (slug.includes('aim') || slug.includes('aimbot')) {
     slugHints.push({
       id: 'blog-slug-scripts',
       topic: 'scripts',
       icon: 'faqBlogSlugScripts',
-      q: 'Which tier includes the aimbot in this article?',
-      a: `{{PRO}} and {{ELITE}} ship Aimbot and related modules. {{LITE}} is wall ESP only.`,
+      q: 'Which tier includes aim assistance?',
+      a: `{{PRO}} and {{ELITE}} when listed. {{LITE}} is ESP-only.`,
     });
   }
-  if (slug.includes('hwid') || slug.includes('ban') || slug.includes('eac')) {
+  if (slug.includes('hwid') || slug.includes('ban') || slug.includes('launcher')) {
     slugHints.push({
       id: 'blog-slug-hwid',
       topic: 'products',
       icon: 'faqBlogSlugHwid',
-      q: 'Does this article replace HWID or UGC products?',
-      a: `Recovery guides complement {{HWID}} and {{UGC}}—read product pages for workflow scope and realistic outcomes.`,
+      q: 'Does this replace HWID or UGC products?',
+      a: `Guides complement {{HWID}} and {{UGC}}—read product pages for realistic scope.`,
     });
   }
 
@@ -478,24 +466,16 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
 }
 
 export const compareRows = [
-  { feature: 'Player ESP & player boxes', icon: 'comparePlayerEsp' as const, lite: true, pro: true, elite: true },
-  { feature: 'Chest & loot locator', icon: 'compareWardLocator' as const, lite: true, pro: true, elite: true },
-  { feature: 'Loot spawn timers', icon: 'compareRuneTimer' as const, lite: true, pro: true, elite: true },
-  { feature: 'Radar', icon: 'compareZoomHack' as const, lite: true, pro: true, elite: true },
-  { feature: 'Streamproof overlay', icon: 'compareStreamproof' as const, lite: true, pro: true, elite: true },
-  { feature: 'Mini wall ESP overlay', icon: 'compareRadarHack' as const, lite: true, pro: true, elite: true },
-  { feature: 'Aimbot', icon: 'compareAutoCombo' as const, lite: false, pro: true, elite: true },
-  { feature: 'Smooth Aim & Sticky Aim', icon: 'compareSmoothAim' as const, lite: false, pro: true, elite: true },
-  { feature: 'Bone Priority', icon: 'compareTargetSelector' as const, lite: false, pro: true, elite: true },
-  { feature: 'Hotkey macros (heals/shields)', icon: 'compareHotkeyMacros' as const, lite: false, pro: true, elite: true },
-  { feature: 'FOV radius drawing', icon: 'compareAbilityRadius' as const, lite: false, pro: true, elite: true },
-  { feature: 'Smoke alert integration', icon: 'compareSmokeAlert' as const, lite: false, pro: true, elite: true },
-  { feature: 'Loot Assist', icon: 'compareAutoFarm' as const, lite: false, pro: false, elite: true },
-  { feature: 'Triggerbot', icon: 'compareAutoKillSteal' as const, lite: false, pro: false, elite: true },
-  { feature: 'Recoil control', icon: 'compareAutoShieldBreak' as const, lite: false, pro: false, elite: true },
-  { feature: 'Full wall ESP suite', icon: 'compareFullMapHack' as const, lite: false, pro: false, elite: true },
-  { feature: 'Legend loadout tools (Loadout Pack)', icon: 'compareSkinChanger' as const, lite: false, pro: false, elite: true },
-  { feature: 'Priority patch queue', icon: 'comparePriorityPatch' as const, lite: false, pro: false, elite: true },
-  { feature: 'Direct dev Discord support', icon: 'compareDevSupport' as const, lite: false, pro: false, elite: true },
+  { feature: 'Vehicle ESP & markers', icon: 'comparePlayerEsp' as const, lite: true, pro: true, elite: true },
+  { feature: 'Threat distance readouts', icon: 'compareWardLocator' as const, lite: true, pro: true, elite: true },
+  { feature: 'Radar-style overlay', icon: 'compareRadarHack' as const, lite: true, pro: true, elite: true },
+  { feature: 'Stream-friendly overlay mode', icon: 'compareStreamproof' as const, lite: true, pro: true, elite: true },
+  { feature: 'Configurable aim assistance', icon: 'compareAutoCombo' as const, lite: false, pro: true, elite: true },
+  { feature: 'Smoothing & lead tuning', icon: 'compareSmoothAim' as const, lite: false, pro: true, elite: true },
+  { feature: 'Ballistics helpers (if listed)', icon: 'compareTargetSelector' as const, lite: false, pro: true, elite: true },
+  { feature: 'Triggerbot (if listed)', icon: 'compareAutoKillSteal' as const, lite: false, pro: false, elite: true },
+  { feature: 'Advanced ESP layers (if listed)', icon: 'compareFullMapHack' as const, lite: false, pro: false, elite: true },
+  { feature: 'Hangar preview tools (if listed)', icon: 'compareSkinChanger' as const, lite: false, pro: false, elite: true },
+  { feature: 'Priority support (if listed)', icon: 'comparePriorityPatch' as const, lite: false, pro: false, elite: true },
   { feature: 'Cloud config backup', icon: 'compareCloudBackup' as const, lite: true, pro: true, elite: true },
 ];

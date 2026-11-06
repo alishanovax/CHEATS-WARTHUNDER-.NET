@@ -1,15 +1,15 @@
 ---
 import CheckoutBridgeLayout from '../../../layouts/CheckoutBridgeLayout.astro';
 import {
-  ZADEYO_APEX_CHECKOUT_URL,
-  ZADEYO_APEX_PRODUCT_SEO,
-} from '../../../config/zadeyoApexProductSeo';
+  ZADEYO_WAR_THUNDER_CHECKOUT_URL,
+  ZADEYO_WAR_THUNDER_PRODUCT_SEO,
+} from '../../../config/zadeyoWarThunderProductSeo';
 import { productSchema } from '../../../utils/schema';
 import { PRIMARY_CHEAT_IMAGE } from '../../../config/siteImages';
 import { Button } from '@/components/starwind/button';
 
-const seo = ZADEYO_APEX_PRODUCT_SEO;
-const capsuleAlt = 'Apex Legends Steam library capsule art';
+const seo = ZADEYO_WAR_THUNDER_PRODUCT_SEO;
+const heroAlt = 'War Thunder PC gameplay reference — checkout preview image';
 const headingFor = (key: (typeof seo.bodySections)[number]['headingKey']) => seo[key];
 ---
 
@@ -18,13 +18,13 @@ const headingFor = (key: (typeof seo.bodySections)[number]['headingKey']) => seo
   description={seo.description}
   logoAlt={seo.logoAlt}
   ogImage={PRIMARY_CHEAT_IMAGE}
-  ogImageAlt="Apex Legends PC ranked match — Apex Legends Cheats checkout preview"
+  ogImageAlt="War Thunder PC — War Thunder Cheats checkout preview"
   jsonLd={[
     productSchema({
       name: seo.h1,
       description: seo.description,
-      url: '/go/apex/',
-      offerUrl: ZADEYO_APEX_CHECKOUT_URL,
+      url: '/go/war-thunder/',
+      offerUrl: ZADEYO_WAR_THUNDER_CHECKOUT_URL,
     }),
   ]}
 >
@@ -47,22 +47,22 @@ const headingFor = (key: (typeof seo.bodySections)[number]['headingKey']) => seo
   </style>
   <article>
     <header class="space-y-4 text-center">
-      <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">ZADEYO · PC multiplayer</p>
+      <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">ZADEYO · PC</p>
       <h1 class="text-3xl font-bold leading-tight md:text-4xl">{seo.h1}</h1>
       <p class="text-lg leading-relaxed text-muted-foreground">{seo.intro}</p>
-      <Button as="a" href={ZADEYO_APEX_CHECKOUT_URL} variant="primary" size="lg" class="mt-2">
+      <Button as="a" href={ZADEYO_WAR_THUNDER_CHECKOUT_URL} variant="primary" size="lg" class="mt-2">
         Open ZADEYO secure checkout
       </Button>
     </header>
 
     <figure class="mt-8 overflow-hidden rounded-xl border border-border">
       <img
-        src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/359550/5878a9291aaf2334e08424c6db8e9635d9fa05b4/library_capsule_2x.jpg"
-        alt={capsuleAlt}
-        width="920"
-        height="430"
+        src={PRIMARY_CHEAT_IMAGE}
+        alt={heroAlt}
+        width="960"
+        height="540"
         loading="lazy"
-        class="h-auto w-full"
+        class="h-auto w-full object-cover"
       />
     </figure>
 
@@ -70,7 +70,7 @@ const headingFor = (key: (typeof seo.bodySections)[number]['headingKey']) => seo
       <h2 id="product-details-title" class="text-xl font-semibold">{seo.h2ProductDetails}</h2>
       <p class="text-muted-foreground">
         Compare modules on{' '}
-        <a href="/products/apex/" class="text-primary hover:underline">apexlegendcheats.net Apex product catalog</a>
+        <a href="/products/war-thunder/" class="text-primary hover:underline">cheatswarthunder.net War Thunder catalog</a>
         before you continue. Checkout and license delivery run on ZADEYO with secure payment and instant digital access.
       </p>
     </section>
@@ -86,23 +86,23 @@ const headingFor = (key: (typeof seo.bodySections)[number]['headingKey']) => seo
         </div>
       ))}
       <ul class="list-disc space-y-2 pl-5 text-muted-foreground">
-        <li>Configurable aimbot FOV, smoothness, and hitbox selection.</li>
-        <li>Player ESP, skeleton types, snaplines, and item ESP lists.</li>
-        <li>Save and load config profiles for ranked and unranked playlists.</li>
+        <li>Configurable aim assistance (when listed on Zadeyo).</li>
+        <li>Vehicle ESP, radar-style overlays, and distance readouts (per listing).</li>
+        <li>Save and load config profiles for Air and Ground presets.</li>
       </ul>
     </section>
 
     <section class="mt-8 space-y-3" aria-labelledby="system-requirements-title">
       <h2 id="system-requirements-title" class="text-xl font-semibold">{seo.h2SystemRequirements}</h2>
       <p class="text-muted-foreground">
-        Windows 10 and 11 supported. HVCI ON, Core Isolation ON, TPM ON, Secure Boot ON. Cloud DMA is required for full functionality on supported builds.
+        Windows 10 and 11 (64-bit) with the current War Thunder PC client. Confirm CPU, GPU, and anti-virus requirements in the portal guide before install.
       </p>
     </section>
 
     {
       seo.bodySections.map((block) => (
-        <section class="mt-8 space-y-3" aria-labelledby={`go-apex-${block.id}`}>
-          <h2 id={`go-apex-${block.id}`} class="text-xl font-semibold">
+        <section class="mt-8 space-y-3" aria-labelledby={`go-wt-${block.id}`}>
+          <h2 id={`go-wt-${block.id}`} class="text-xl font-semibold">
             {headingFor(block.headingKey)}
           </h2>
           {block.paragraphs.map((paragraph) => (
@@ -116,7 +116,7 @@ const headingFor = (key: (typeof seo.bodySections)[number]['headingKey']) => seo
       <h2 id="checkout-help-title" class="text-lg font-semibold">Before you buy</h2>
       <p class="text-muted-foreground">
         Read the{' '}
-        <a href="/faq/" class="text-primary hover:underline">FAQ on loader setup and Easy Anti-Cheat checks</a>
+        <a href="/faq/" class="text-primary hover:underline">FAQ on loader setup and patch checks</a>
         or open the{' '}
         <a href="/support/" class="text-primary hover:underline">support desk for checkout help</a>.
       </p>

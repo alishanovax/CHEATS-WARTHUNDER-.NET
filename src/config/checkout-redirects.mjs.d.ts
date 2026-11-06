@@ -1,5 +1,5 @@
 export declare const CHECKOUT_URLS: {
-  readonly apex: string;
+  readonly warThunder: string;
   readonly skinChanger: string;
   readonly hwidSpoofer: string;
   readonly ugc: string;

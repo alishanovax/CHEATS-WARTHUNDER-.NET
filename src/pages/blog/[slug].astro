@@ -38,9 +38,9 @@ if (!post) {
 
 const postPath = `/blog/${post.slug}/`;
 const blogCrumbLabels: Record<string, string> = {
-  'apex-firing-range-practice': 'Apex Firing Range guides (blog hub)',
-  'apex-stream-proof': 'Stream-proof guides (blog hub)',
-  'apex-radar': 'Radar cheat guides (blog hub)',
+  'wt-test-drive-practice': 'Test Drive guides (blog hub)',
+  'wt-stream-proof': 'Stream-proof guides (blog hub)',
+  'wt-radar': 'Radar guides (blog hub)',
 };
 const blogCrumbLabel = blogCrumbLabels[post.slug] ?? 'Blog';
 const breadcrumbs = [
@@ -57,10 +57,10 @@ function linkify(text: string): string {
       const normalized = normalizeInternalPath(href);
       return `<a href="${normalized}">${label}</a>`;
     })
-    .replace(/(https:\/\/apexlegendcheats\.net[^\s.,;)]*)/g, (_match, url: string) => {
-      const path = url.replace(/^https:\/\/apexlegendcheats\.net/, '');
+    .replace(/(https:\/\/cheatswarthunder\.net[^\s.,;)]*)/g, (_match, url: string) => {
+      const path = url.replace(/^https:\/\/cheatswarthunder\.net/, '');
       const normalized = normalizeInternalPath(path);
-      const href = normalized.startsWith('http') ? normalized : `https://apexlegendcheats.net${normalized}`;
+      const href = normalized.startsWith('http') ? normalized : `https://cheatswarthunder.net${normalized}`;
       return `<a href="${href}">${url}</a>`;
     });
 }
@@ -123,11 +123,11 @@ const articleH1 = blogPostPageH1(post.slug, post.title);
             <ResponsiveImage
               src={post.image}
               alt={
-                post.slug === 'eac-troubleshooting'
-                  ? `${post.title} — Easy Anti-Cheat verification troubleshooting on PC`
-                  : post.slug === 'apex-stream-proof'
-                    ? `${post.title} — hide wall ESP and script overlays on stream`
-                    : `${post.title} — Apex Legends cheat gameplay screenshot`
+                post.slug === 'wt-launcher-troubleshooting'
+                  ? `${post.title} — War Thunder PC launcher troubleshooting context`
+                  : post.slug === 'wt-stream-proof'
+                    ? `${post.title} — hide ESP overlays from stream capture on PC`
+                    : `${post.title} — War Thunder cheat product screenshot`
               }
               width={960}
               height={540}
@@ -155,6 +155,15 @@ const articleH1 = blogPostPageH1(post.slug, post.title);
                       <li set:html={linkify(item)} />
                     ))}
                   </ul>
+                );
+              }
+              if (block.type === 'ol') {
+                return (
+                  <ol>
+                    {block.items.map((item) => (
+                      <li set:html={linkify(item)} />
+                    ))}
+                  </ol>
                 );
               }
               if (block.type === 'table') {
@@ -187,13 +196,6 @@ const articleH1 = blogPostPageH1(post.slug, post.title);
                     title={block.title}
                     html={linkify(block.text)}
                     href={resolveCheckoutHref(block.href)}
-                    buyLabel={
-                      post.slug === 'apex-firing-range-practice'
-                        ? 'Checkout after Firing Range drills (CTA)'
-                        : post.slug === 'apex-stream-proof'
-                          ? 'Buy stream-proof tier (inline CTA)'
-                          : undefined
-                    }
                   />
                 );
               }
@@ -202,43 +204,43 @@ const articleH1 = blogPostPageH1(post.slug, post.title);
           </Prose>
 
           <nav class="blog-article__actions" aria-label="Continue reading">
-            <Button as="a" href={checkoutPath('apex')} variant="primary" aria-label={t.ui.checkoutAria}>
+            <Button as="a" href={checkoutPath('warThunder')} variant="primary" aria-label={t.ui.checkoutAria}>
               {
-                post.slug === 'eac-troubleshooting'
-                  ? 'Checkout after Easy Anti-Cheat fix'
-                  : post.slug === 'apex-stream-proof'
-                    ? 'Buy stream-proof Apex tier'
-                    : post.slug === 'apex-firing-range-practice'
-                      ? 'Checkout after Firing Range drills'
-                      : post.slug === 'apex-radar'
-                        ? 'Buy Lite radar cheat tier'
-                        : 'Buy Apex Legends Cheats'
+                post.slug === 'wt-launcher-troubleshooting'
+                  ? 'Checkout after launcher fix'
+                  : post.slug === 'wt-stream-proof'
+                    ? 'Buy with stream-safe options'
+                    : post.slug === 'wt-test-drive-practice'
+                      ? 'Checkout after Test Drive tuning'
+                      : post.slug === 'wt-radar'
+                        ? 'Buy Lite (radar + ESP)'
+                        : 'Buy War Thunder cheats'
               }
               <Icon name="arrowRight" size={17} />
             </Button>
             <Button as="a" href={ROUTES.products} variant="outline">
               {
-                post.slug === 'eac-troubleshooting'
-                  ? 'Open Apex product catalog'
-                  : post.slug === 'apex-stream-proof'
-                    ? 'Open stream-safe product hub'
-                    : post.slug === 'apex-firing-range-practice'
-                      ? 'Compare Lite and Pro tiers'
-                      : post.slug === 'apex-radar'
-                        ? 'Open Apex product catalog (radar)'
+                post.slug === 'wt-launcher-troubleshooting'
+                  ? 'Open product catalog'
+                  : post.slug === 'wt-stream-proof'
+                    ? 'Open stream setup hub'
+                    : post.slug === 'wt-test-drive-practice'
+                      ? 'Compare Lite and Pro'
+                      : post.slug === 'wt-radar'
+                        ? 'Open products (radar)'
                         : 'View products'
               }
             </Button>
             <Button as="a" href={ROUTES.blog} variant="outline">
               {
-                post.slug === 'eac-troubleshooting'
-                  ? 'Browse patch-day guides'
-                  : post.slug === 'apex-stream-proof'
-                    ? 'More OBS setup guides'
-                    : post.slug === 'apex-firing-range-practice'
-                      ? 'More Firing Range guides'
-                      : post.slug === 'apex-radar'
-                        ? 'More radar and ESP guides'
+                post.slug === 'wt-launcher-troubleshooting'
+                  ? 'Browse troubleshooting guides'
+                  : post.slug === 'wt-stream-proof'
+                    ? 'More stream guides'
+                    : post.slug === 'wt-test-drive-practice'
+                      ? 'More Test Drive guides'
+                      : post.slug === 'wt-radar'
+                        ? 'More radar guides'
                         : 'More articles'
               }
               <Icon name="arrowRight" size={17} />
