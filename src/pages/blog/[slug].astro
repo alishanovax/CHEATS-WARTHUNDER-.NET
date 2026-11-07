@@ -10,7 +10,6 @@ import {
   breadcrumbSchema,
   parseBlogDate,
 } from '../../utils/schema';
-import { checkoutPath, resolveCheckoutHref } from '../../config/checkout';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
 import BlogSidebar from '../../components/BlogSidebar.astro';
@@ -72,6 +71,7 @@ function slugify(text: string): string {
     .replace(/^-|-$/g, '');
 }
 const published = parseBlogDate(post.date);
+const modified = post.dateModified ? parseBlogDate(post.dateModified) : published;
 const fallbackDesc = cheatMetaDescription(post.desc);
 const postSeoMeta = getBlogPostSeo(post.slug, { title: pageTitle(post.title), description: fallbackDesc });
 const layoutTitle = blogPostLayoutTitle(post.slug, post.title);
@@ -86,7 +86,7 @@ const articleH1 = blogPostPageH1(post.slug, post.title);
   ogImage={post.image}
   ogImageAlt={post.title}
   articlePublishedTime={published}
-  articleModifiedTime={published}
+  articleModifiedTime={modified}
   jsonLd={[
     articleSchema({
       name: post.title,
@@ -94,6 +94,7 @@ const articleH1 = blogPostPageH1(post.slug, post.title);
       url: postPath,
       image: post.image,
       datePublished: published,
+      dateModified: modified,
     }),
     breadcrumbSchema(breadcrumbs),
   ]}
@@ -195,7 +196,7 @@ const articleH1 = blogPostPageH1(post.slug, post.title);
                   <BlogPostCta
                     title={block.title}
                     html={linkify(block.text)}
-                    href={resolveCheckoutHref(block.href)}
+                    href={normalizeInternalPath(block.href)}
                   />
                 );
               }
@@ -204,7 +205,7 @@ const articleH1 = blogPostPageH1(post.slug, post.title);
           </Prose>
 
           <nav class="blog-article__actions" aria-label="Continue reading">
-            <Button as="a" href={checkoutPath('warThunder')} variant="primary" aria-label={t.ui.checkoutAria}>
+            <Button as="a" href={ROUTES.goWarThunder} variant="primary" aria-label={t.ui.checkoutAria}>
               {
                 post.slug === 'wt-launcher-troubleshooting'
                   ? 'Checkout after launcher fix'

@@ -33,3 +33,15 @@ You verify the domain at your DNS provider—no HTML meta tags in the repo.
 | purchase / refund | `/terms/`, `/support/` |
 
 Product and blog article pages still use their own titles from content; add entries to `PAGE_SEO` only when you want a fixed override for a specific pathname.
+
+## Legacy URLs (Apex, R6, Borderlands, etc.)
+
+The repo still **builds** HTML for older slugs so external links and bookmarks resolve. In production, **Cloudflare** (`public/_redirects` + Worker) and **Astro `redirects`** in [`astro.config.mjs`](../astro.config.mjs) should return **301** to the matching War Thunder route.
+
+- **Sitemap**: `/go/` and `/404` are excluded from the generated sitemap ([`src/config/sitemap.ts`](../src/config/sitemap.ts)) — only indexable cheatswarthunder.net paths are listed.
+- **Robots**: `Disallow: /go/` in `robots.txt` — keep checkout bridges out of focus as primary landing pages.
+- **Monitoring**: In GSC, watch **Pages** / **Redirects** for legacy paths. If any stub page is **indexed** with duplicate titles (“Redirecting…”), ensure the host issues a **301** to the WT canonical, or add `noindex` on that stub template if you introduce one.
+
+## Rich results / schema
+
+Product markup uses **WebPage** JSON-LD (not Product/Offer without a verifiable price) on tier pages and `/go/war-thunder/` — see [`src/utils/schema.ts`](../src/utils/schema.ts). After deploy, spot-check URLs in [Rich Results Test](https://search.google.com/test/rich-results) and Lighthouse **SEO**.

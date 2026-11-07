@@ -9,7 +9,7 @@ function rewriteHtmlSeoUrls(html, origin, pathname) {
   return html
     .replace(/<link rel="canonical" href="[^"]*"/g, `<link rel="canonical" href="${canonical}"`)
     .replace(
-      /<link rel="alternate" hreflang="(en|en-US|x-default)" href="[^"]*"/g,
+      /<link rel="alternate" hreflang="(en|x-default)" href="[^"]*"/g,
       (_match, lang) => `<link rel="alternate" hreflang="${lang}" href="${canonical}"`,
     )
     .replace(/<meta property="og:url" content="[^"]*"/g, `<meta property="og:url" content="${canonical}"`);

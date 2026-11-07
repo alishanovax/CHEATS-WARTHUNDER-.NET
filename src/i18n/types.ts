@@ -56,6 +56,8 @@ export interface BlogPost {
   image: string;
   desc: string;
   date: string;
+  /** ISO-style or same format as date — when the article was last substantively revised (optional). */
+  dateModified?: string;
   readTime: string;
 }
 

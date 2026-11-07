@@ -62,7 +62,6 @@ export function pageTitle(keyword: string, brand = t.site.name): string {
 
 export function cheatMetaDescription(text: string): string {
   const trimmed = text.trim();
-  if (/mw4\s*cheat/i.test(trimmed)) return trimmed;
   return `War Thunder cheats guide: ${trimmed}`;
 }
 

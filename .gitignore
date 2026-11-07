@@ -30,3 +30,6 @@ pnpm-debug.log*
 _import/
 .seo-baseline/
 
+# local Lighthouse dumps (not for repo)
+.lighthouse-*.json
+

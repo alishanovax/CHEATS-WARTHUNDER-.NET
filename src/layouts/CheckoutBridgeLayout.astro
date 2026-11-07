@@ -57,9 +57,8 @@ const navLinks = [
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content={shareImageAlt} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="en" href={canonical} />
-    <link rel="alternate" hreflang="en-US" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link rel="alternate" hreflang="en" href={canonical} />
     {jsonLd && <JsonLd data={jsonLd} />}
     <link rel="icon" type="image/svg+xml" href={`/favicon.svg?v=${FAVICON_VERSION}`} />
     <slot name="head" />

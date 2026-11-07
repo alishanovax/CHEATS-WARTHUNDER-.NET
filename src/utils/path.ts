@@ -86,6 +86,8 @@ export const ROUTES = {
   products: PRODUCT_BASE,
   productsElite: `${PRODUCT_BASE}elite/`,
   productsUtilities: `${PRODUCT_BASE}utilities/`,
+  /** On-site bridge to Zadeyo checkout (avoids raw affiliate URLs in article markup). */
+  goWarThunder: '/go/war-thunder/',
   faq: '/faq/',
   terms: '/terms/',
   about: '/about/',

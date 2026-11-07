@@ -30,7 +30,7 @@ const buyHref = checkoutUrlWithPlan(product.buyUrl, defaultPlan.id);
         id={`checkout-${product.slug}`}
         class="text-base font-semibold tracking-tight text-white"
       >
-        Choose Your Duration
+        Choose your duration
       </p>
 
       <div class="flex flex-col gap-2.5" role="radiogroup" aria-label="Choose your duration" data-plan-group>
@@ -87,7 +87,7 @@ const buyHref = checkoutUrlWithPlan(product.buyUrl, defaultPlan.id);
 
       <a
         href={buyHref}
-        class="flex w-full items-center justify-center rounded-xl bg-white px-4 py-3.5 text-sm font-semibold text-[#0a0a0a] transition-colors hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        class="flex w-full items-center justify-center rounded-full bg-white px-4 py-3.5 text-sm font-semibold text-[#0a0a0a] transition-colors hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         data-checkout-buy
       >
         <span data-checkout-buy-label>Buy Now - {formatPlanPrice(defaultPlan.priceUsd)}</span>

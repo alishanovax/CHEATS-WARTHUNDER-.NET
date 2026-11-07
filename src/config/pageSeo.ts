@@ -16,7 +16,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     title: 'War Thunder Cheats — PC aimbot, ESP & setup guides',
     description:
-      'Compare War Thunder PC cheat tiers, read setup guides, and check secure options — aimbot, vehicle ESP, radar, and support at cheatswarthunder.net.',
+      'Official-style hub for War Thunder PC cheats on cheatswarthunder.net — tier matrix, loader FAQ, blog guides, forum, and support. Compare modules on the live Zadeyo listing before checkout.',
     h1: 'War Thunder Cheats',
   },
   '/products/war-thunder/': {
@@ -104,9 +104,10 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
     h1: 'Support — loader, HWID, checkout & config help',
   },
   '/war-thunder-cheats/': {
-    title: 'War Thunder cheats hub — PC tiers, features & checkout',
+    title: 'War Thunder “cheats” keyword — PC tiers & Zadeyo listing',
     description:
-      'Overview of War Thunder PC cheat tiers, core features, and loader-focused notes. Compare options and checkout at cheatswarthunder.net.',
+      'Editorial landing for “War Thunder cheats” searches: what the tiers mean, how checkout and the portal work, and links to product pages — cheatswarthunder.net (not affiliated with Gaijin).',
+    h1: 'War Thunder cheats — what the keyword page covers',
   },
 };
 

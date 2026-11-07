@@ -4,7 +4,7 @@ import {
   ZADEYO_WAR_THUNDER_CHECKOUT_URL,
   ZADEYO_WAR_THUNDER_PRODUCT_SEO,
 } from '../../../config/zadeyoWarThunderProductSeo';
-import { productSchema } from '../../../utils/schema';
+import { productPageWebPageSchema } from '../../../utils/schema';
 import { PRIMARY_CHEAT_IMAGE } from '../../../config/siteImages';
 import { Button } from '@/components/starwind/button';
 
@@ -20,11 +20,11 @@ const headingFor = (key: (typeof seo.bodySections)[number]['headingKey']) => seo
   ogImage={PRIMARY_CHEAT_IMAGE}
   ogImageAlt="War Thunder PC — War Thunder Cheats checkout preview"
   jsonLd={[
-    productSchema({
+    productPageWebPageSchema({
       name: seo.h1,
       description: seo.description,
       url: '/go/war-thunder/',
-      offerUrl: ZADEYO_WAR_THUNDER_CHECKOUT_URL,
+      image: PRIMARY_CHEAT_IMAGE,
     }),
   ]}
 >

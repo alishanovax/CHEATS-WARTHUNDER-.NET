@@ -139,45 +139,57 @@ export function discussionForumPostingSchema(input: {
   };
 }
 
-function offerUrl(path: string): string {
-  if (path.startsWith('http://') || path.startsWith('https://')) return path;
-  return canonicalUrl(path);
-}
-
-export function productSchema(input: {
+/**
+ * Product tier / checkout preview pages — use WebPage only (no Product/Offer)
+ * so we do not claim price, stock, or seller when commerce runs on Zadeyo.
+ */
+export function productPageWebPageSchema(input: {
   name: string;
   description: string;
   url: string;
-  offerUrl: string;
   image?: string;
-  sku?: string;
 }) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Product',
+    '@type': 'WebPage',
     name: input.name,
     description: input.description,
-    sku: input.sku ?? input.url.replace(/\//g, '-'),
-    brand: {
-      '@type': 'Brand',
+    url: canonicalUrl(input.url),
+    inLanguage: 'en-US',
+    ...(input.image
+      ? {
+          primaryImageOfPage: {
+            '@type': 'ImageObject',
+            url: absoluteAssetUrl(input.image),
+          },
+        }
+      : {}),
+    isPartOf: {
+      '@type': 'WebSite',
       name: SITE_BRAND,
-    },
-    ...(input.image ? { image: absoluteAssetUrl(input.image) } : {}),
-    offers: {
-      '@type': 'Offer',
-      url: offerUrl(input.offerUrl),
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      description: 'Price and plan length are shown on Zadeyo at checkout.',
-      seller: {
-        '@type': 'Organization',
-        name: SITE_BRAND,
-      },
+      url: `${SITE_ORIGIN}/`,
     },
   };
 }
 
-/** @deprecated Prefer productSchema for product/cheat detail pages. */
+/** @deprecated Use productPageWebPageSchema — avoids invalid Product rich results without a verifiable Offer. */
+export function productSchema(input: {
+  name: string;
+  description: string;
+  url: string;
+  offerUrl?: string;
+  image?: string;
+  sku?: string;
+}) {
+  return productPageWebPageSchema({
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    image: input.image,
+  });
+}
+
+/** @deprecated Prefer productPageWebPageSchema for product/cheat detail pages. */
 export function softwareApplicationSchema(input: {
   name: string;
   description: string;
@@ -185,11 +197,10 @@ export function softwareApplicationSchema(input: {
   image?: string;
   offerUrl?: string;
 }) {
-  return productSchema({
+  return productPageWebPageSchema({
     name: input.name,
     description: input.description,
     url: input.url,
-    offerUrl: input.offerUrl ?? input.url,
     image: input.image,
   });
 }

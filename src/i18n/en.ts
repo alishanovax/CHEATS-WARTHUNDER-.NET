@@ -10,7 +10,7 @@ export const en: Translations = {
     domain: 'cheatswarthunder.net',
     title: 'War Thunder Cheats',
     description:
-      'War Thunder cheats for PC — map overlays, vehicle ESP, aim assistance options, and setup guides. Pricing and access are confirmed at Zadeyo checkout via cheatswarthunder.net.',
+      'War Thunder cheats hub on cheatswarthunder.net — compare Lite, Pro, and Elite on the site, read setup guides and forum threads, then confirm modules and price on the live Zadeyo listing before checkout.',
     discord: DISCORD_URL,
   },
   nav: [
@@ -26,7 +26,7 @@ export const en: Translations = {
     h1: 'War Thunder Cheats',
     h1Accent: '',
     subtitle:
-      'War Thunder PC cheats for Air and Ground battles — vehicle ESP, radar-style overlays, configurable aim assistance, and save/load config profiles. Always confirm modules on the Zadeyo listing before purchase.',
+      'Start here for site navigation: product matrix, blog library, and support. For module names and pricing, use the Zadeyo War Thunder listing linked from product pages — this homepage summarizes what cheatswarthunder.net publishes.',
     ctaPrimary: 'Buy now',
     ctaDiscord: 'Join Discord',
     modesLabel: 'Game modes',

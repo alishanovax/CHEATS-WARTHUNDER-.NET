@@ -1,9 +1,9 @@
 /** Server-rendered copy for /war-thunder-cheats/ (War Thunder cheats keyword landing). */
 export const warThunderCheatsLanding = {
-  h1: 'War Thunder cheats — checkout when the status banner shows online',
-  keywordH2: 'War Thunder Cheats: PC aim assistance, ESP & radar',
+  h1: '“War Thunder cheats” — keyword guide for PC tiers & checkout flow',
+  keywordH2: 'When people search “War Thunder cheats” they usually mean',
   intro:
-    'War Thunder cheats on this site follow the Zadeyo War Thunder listing for PC — see the live product page for the current module list, pricing, and terms. Compare tiers on cheatswarthunder.net, then checkout when the status banner shows online.',
+    'This URL targets informational queries: what Lite vs Pro vs Elite mean on our site, how the [checkout bridge](/go/war-thunder/) works, and where the authoritative module list lives (Zadeyo). For browsing the full catalog and screenshots, use the [product hub](/products/war-thunder/) from the main site.',
   sections: [
     {
       heading: 'Verified product scope',

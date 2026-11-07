@@ -9,22 +9,22 @@ export interface ProductPlan {
   popular?: boolean;
 }
 
-/** Pricing varies by Zadeyo offer — UI uses neutral copy; checkout shows live price. */
+/** Display prices for tier selection; final charge may vary — see Zadeyo at checkout. */
 const standardPlans: ProductPlan[] = [
   {
     id: 'monthly',
     label: 'Monthly',
-    duration: 'Time-limited access',
-    priceUsd: null,
-    priceNote: 'See Zadeyo checkout',
+    duration: '31 days of access',
+    priceUsd: 35,
+    priceNote: 'Final price confirmed at checkout',
     popular: true,
   },
   {
     id: 'lifetime',
-    label: 'Extended',
-    duration: 'Long-term access',
-    priceUsd: null,
-    priceNote: 'See Zadeyo checkout',
+    label: 'Lifetime',
+    duration: 'Unlimited access',
+    priceUsd: 150,
+    priceNote: 'Final price confirmed at checkout',
   },
 ];
 
