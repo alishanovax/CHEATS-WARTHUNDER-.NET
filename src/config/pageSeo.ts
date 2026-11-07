@@ -16,7 +16,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     title: 'War Thunder Cheats — PC aimbot, ESP & setup guides',
     description:
-      'Official-style hub for War Thunder PC cheats on cheatswarthunder.net — tier matrix, loader FAQ, blog guides, forum, and support. Compare modules on the live Zadeyo listing before checkout.',
+      'Shop undetected War Thunder cheats for Windows—vehicle ESP, player ESP, aimbot, radar and stream-proof overlays. Compare Lite, Pro and Elite at cheatswarthunder.net.',
     h1: 'War Thunder Cheats',
   },
   '/products/war-thunder/': {

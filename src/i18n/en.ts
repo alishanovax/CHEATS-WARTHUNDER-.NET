@@ -10,7 +10,7 @@ export const en: Translations = {
     domain: 'cheatswarthunder.net',
     title: 'War Thunder Cheats',
     description:
-      'War Thunder cheats hub on cheatswarthunder.net — compare Lite, Pro, and Elite on the site, read setup guides and forum threads, then confirm modules and price on the live Zadeyo listing before checkout.',
+      'Shop undetected War Thunder cheats for Windows—vehicle ESP, player ESP, aimbot, radar and stream-proof overlays. Compare Lite, Pro and Elite at cheatswarthunder.net.',
     discord: DISCORD_URL,
   },
   nav: [
